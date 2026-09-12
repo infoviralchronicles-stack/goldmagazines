@@ -5,7 +5,8 @@ import ArticleCard from '@/components/magazine/ArticleCard';
 import AdBanner from '@/components/layout/AdBanner';
 import { TrendingUp, Sparkles, Compass, ShieldCheck } from 'lucide-react';
 
-export const revalidate = 60; // Revalidate at most every minute
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default async function HomePage() {
   // 1. Fetch Lead & Featured Articles

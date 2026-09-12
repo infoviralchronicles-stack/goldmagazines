@@ -204,7 +204,6 @@ ${rawContent ? `<div class="prose dark:prose-invert max-w-none text-gray-800 dar
 
         let status = 'PUBLISHED';
         if (source.autoPublishMode === 'DRAFT') status = 'DRAFT';
-        else if (source.autoPublishMode === 'REVIEW') status = 'PENDING_REVIEW';
 
         const readTime = estimateReadingTime(synthesizedContent);
 
