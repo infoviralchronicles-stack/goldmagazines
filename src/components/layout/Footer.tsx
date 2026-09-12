@@ -89,7 +89,7 @@ export default function Footer() {
             </span>
           </Link>
           <p className="text-xs text-gray-400 leading-relaxed">
-            The global benchmark publication providing authoritative reporting on physical gold bullion, sovereign monetary reserves, high horology, and inter-generational tangible asset preservation.
+            The premier digital publication covering tech innovation, global business, luxury lifestyle, and world culture.
           </p>
           <div className="text-xs font-mono text-gray-500 pt-2">
             Zurich &bull; London &bull; Dubai &bull; New York
@@ -99,10 +99,10 @@ export default function Footer() {
         {/* Col 2: Editorial Sections */}
         <div className="space-y-3">
           <h4 className="text-xs font-mono uppercase tracking-widest text-gold-400 font-semibold">
-            Coverage
+            Categories
           </h4>
           <ul className="space-y-2 text-xs">
-            <li><Link href="/category/features" className="hover:text-gold-400 transition-colors">Features & Cover Stories</Link></li>
+            <li><Link href="/category/features" className="hover:text-gold-400 transition-colors">Features</Link></li>
             <li><Link href="/category/business" className="hover:text-gold-400 transition-colors">Business & Finance</Link></li>
             <li><Link href="/category/style-luxury" className="hover:text-gold-400 transition-colors">Style & Luxury</Link></li>
             <li><Link href="/category/tech" className="hover:text-gold-400 transition-colors">Tech & Innovation</Link></li>
