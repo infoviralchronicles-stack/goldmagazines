@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/api/cron/ingest?secret=goldmagazines_cron_token_secure",
-      "schedule": "0 * * * *"
+      "schedule": "0 0 * * *"
     }
   ]
 }
