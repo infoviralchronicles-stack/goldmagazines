@@ -59,6 +59,31 @@ Focus on bullion impact, inflation hedges, central bank monetary policy, or weal
   return 'Precious metals, sovereign asset allocations, and high-net-worth liquidity channels continue to respond to shifting macro indicators. This development underscores continued investor emphasis on hard-asset preservation.';
 }
 
+async function fetchUnsplashImage(keyword: string): Promise<string | null> {
+  const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+  if (!accessKey) return null;
+
+  try {
+    const cleanQuery = encodeURIComponent(keyword.slice(0, 40));
+    const res = await fetch(`https://api.unsplash.com/search/photos?query=${cleanQuery}&per_page=1&orientation=landscape`, {
+      headers: {
+        Authorization: `Client-ID ${accessKey}`,
+      },
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data.results && data.results.length > 0) {
+        return data.results[0].urls?.regular || data.results[0].urls?.full || null;
+      }
+    }
+  } catch (err) {
+    console.error('Unsplash fetch error:', err);
+  }
+
+  return null;
+}
+
 const DEFAULT_IMAGES = [
   'https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1579247075775-68007a70823b?auto=format&fit=crop&w=1200&q=80',
@@ -137,8 +162,14 @@ export async function ingestFeed(sourceId: string): Promise<IngestionResult> {
         } else if ((item as any).mediaContent && (item as any).mediaContent.$ && (item as any).mediaContent.$.url) {
           imageUrl = (item as any).mediaContent.$.url;
         } else {
-          const randomIndex = Math.floor(Math.random() * DEFAULT_IMAGES.length);
-          imageUrl = DEFAULT_IMAGES[randomIndex];
+          // Dynamically search Unsplash for high-res photo matching article topic
+          const unsplashImg = await fetchUnsplashImage(title);
+          if (unsplashImg) {
+            imageUrl = unsplashImg;
+          } else {
+            const randomIndex = Math.floor(Math.random() * DEFAULT_IMAGES.length);
+            imageUrl = DEFAULT_IMAGES[randomIndex];
+          }
         }
 
         const rawContent = (item as any).contentEncoded || item.content || item.summary || '';
