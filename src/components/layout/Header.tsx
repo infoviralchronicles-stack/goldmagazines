@@ -34,45 +34,6 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white dark:bg-editorial-dark border-b border-gray-200 dark:border-editorial-cardDarkBorder transition-colors sticky top-0 z-50">
-      {/* Top Utility Market Ticker Bar */}
-      <div className="border-b border-gray-100 dark:border-gray-800/80 bg-gray-50/70 dark:bg-[#070809] text-[11px] py-1.5 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between font-mono text-gray-500 dark:text-gray-400">
-          <div className="flex items-center space-x-4">
-            <span className="hidden md:inline">{currentDate}</span>
-            <span className="hidden md:inline text-gray-300 dark:text-gray-700">|</span>
-            <div className="flex items-center space-x-3 text-xs">
-              <span className="flex items-center text-gray-700 dark:text-gray-200 font-semibold">
-                <DollarSign className="w-3 h-3 text-gold-500 mr-0.5" /> XAU/USD:
-                <span className="ml-1 text-emerald-600 dark:text-emerald-400">$2,748.20</span>
-                <span className="text-[10px] ml-1 text-emerald-500 font-sans">+0.84%</span>
-              </span>
-              <span className="hidden sm:flex items-center text-gray-700 dark:text-gray-200 font-semibold">
-                XAG/USD:
-                <span className="ml-1 text-emerald-600 dark:text-emerald-400">$33.15</span>
-              </span>
-              <span className="hidden lg:flex items-center text-gray-700 dark:text-gray-200 font-semibold">
-                PLATINUM:
-                <span className="ml-1 text-emerald-600 dark:text-emerald-400">$985.40</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <Link
-              href="/editorial-policy"
-              className="hover:text-gold-600 dark:hover:text-gold-400 transition-colors hidden sm:inline"
-            >
-              Editorial Standards
-            </Link>
-            <Link
-              href="/admin"
-              className="flex items-center text-gold-600 dark:text-gold-400 hover:underline font-semibold"
-            >
-              <Shield className="w-3 h-3 mr-1" /> Staff Portal
-            </Link>
-          </div>
-        </div>
-      </div>
 
       {/* Main Luxury Masthead */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-5 flex items-center justify-between">
