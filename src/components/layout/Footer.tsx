@@ -110,17 +110,16 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Col 3: Institutional & Standards */}
+        {/* Col 3: Company & Policy Pages */}
         <div className="space-y-3">
           <h4 className="text-xs font-mono uppercase tracking-widest text-gold-400 font-semibold">
-            Governance
+            Pages
           </h4>
           <ul className="space-y-2 text-xs">
-            <li><Link href="/about" className="hover:text-gold-400 transition-colors">About the Publication</Link></li>
-            <li><Link href="/editorial-policy" className="hover:text-gold-400 transition-colors">Editorial & Ethics Charter</Link></li>
-            <li><Link href="/contact" className="hover:text-gold-400 transition-colors">Press & Media Inquiries</Link></li>
+            <li><Link href="/about" className="hover:text-gold-400 transition-colors">About Us</Link></li>
+            <li><Link href="/contact" className="hover:text-gold-400 transition-colors">Contact Us</Link></li>
             <li><Link href="/privacy-policy" className="hover:text-gold-400 transition-colors">Privacy Policy</Link></li>
-            <li><Link href="/disclaimer" className="hover:text-gold-400 transition-colors">Financial Disclaimer</Link></li>
+            <li><Link href="/disclaimer" className="hover:text-gold-400 transition-colors">Disclaimer</Link></li>
             <li><Link href="/terms" className="hover:text-gold-400 transition-colors">Terms of Service</Link></li>
           </ul>
         </div>
