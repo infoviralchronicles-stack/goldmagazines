@@ -82,7 +82,7 @@ export default async function HomePage() {
           <section>
             <div className="flex items-center justify-between border-b-2 border-gold-500 pb-2 mb-6">
               <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                <span className="text-gold-500 mr-2">/</span> Tech & Innovation
+                Tech & Innovation
               </h2>
               <Link
                 href="/category/tech"
@@ -106,7 +106,7 @@ export default async function HomePage() {
           <section>
             <div className="flex items-center justify-between border-b-2 border-[#926e1c] pb-2 mb-6">
               <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                <span className="text-gold-600 mr-2">/</span> Style & Luxury
+                Style & Luxury
               </h2>
               <Link
                 href="/category/style-luxury"
