@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, Menu, X, Shield, TrendingUp, DollarSign } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
@@ -48,13 +49,24 @@ export default function Header() {
 
         {/* Center Logo */}
         <div className="flex flex-col items-center flex-1 lg:flex-none">
-          <Link href="/" className="group text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-black tracking-widest uppercase text-gray-950 dark:text-white transition-all group-hover:text-gold-500">
-              GOLD<span className="gold-gradient-text font-normal">MAGAZINES</span>
-            </h1>
-            <p className="text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-sans font-medium text-gold-600 dark:text-gold-400 mt-0.5">
-              The Sovereign Wealth & Luxury Journal
-            </p>
+          <Link href="/" className="group flex items-center space-x-3 text-center">
+            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 drop-shadow-md transition-transform group-hover:scale-105">
+              <Image
+                src="/gold-bar-icon.svg"
+                alt="GoldMagazines Gold Bar Emblem"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex flex-col text-left">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-black tracking-widest uppercase text-gray-950 dark:text-white transition-all group-hover:text-gold-500 leading-none">
+                GOLD<span className="gold-gradient-text font-normal">MAGAZINES</span>
+              </h1>
+              <p className="text-[8px] sm:text-[9px] tracking-[0.25em] uppercase font-sans font-medium text-gold-600 dark:text-gold-400 mt-1">
+                The Sovereign Wealth &amp; Luxury Journal
+              </p>
+            </div>
           </Link>
         </div>
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Send, Shield, Award, CheckCircle } from 'lucide-react';
 
 export default function Footer() {
@@ -83,8 +84,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
         {/* Col 1: Brand & Ethos */}
         <div className="space-y-4 md:col-span-1">
-          <Link href="/" className="inline-block">
-            <span className="text-2xl font-serif font-black tracking-wider uppercase text-white">
+          <Link href="/" className="inline-flex items-center space-x-2.5 group">
+            <div className="relative w-8 h-8 flex-shrink-0 transition-transform group-hover:scale-105">
+              <Image
+                src="/gold-bar-icon.svg"
+                alt="GoldMagazines Gold Bar"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="text-xl font-serif font-black tracking-wider uppercase text-white">
               GOLD<span className="gold-gradient-text font-normal">MAGAZINES</span>
             </span>
           </Link>

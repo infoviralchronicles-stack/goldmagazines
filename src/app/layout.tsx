@@ -45,6 +45,14 @@ export const metadata: Metadata = {
     site: '@goldmagazines',
     creator: '@goldmagazines',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/gold-bar-icon.svg', type: 'image/svg+xml' }
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/gold-bar-icon.svg',
+  },
   robots: {
     index: true,
     follow: true,
