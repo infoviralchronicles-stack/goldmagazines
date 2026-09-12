@@ -22,6 +22,43 @@ export interface IngestionResult {
   errors: string[];
 }
 
+async function generateGeminiEditorialInsight(title: string, summary: string): Promise<string> {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    return 'Precious metals, sovereign asset allocations, and high-net-worth liquidity channels continue to respond to shifting macro indicators. This development underscores continued investor emphasis on hard-asset preservation.';
+  }
+
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              {
+                text: `You are the Executive Chief Editor of GoldMagazines (an elite digital publication on physical gold, precious metals, macro finance, and sovereign wealth).
+Provide a concise, highly sophisticated 2-to-3 sentence analytical "Editorial Market Insight" on the following news dispatch:
+Title: "${title}"
+Summary: "${summary}"
+Focus on bullion impact, inflation hedges, central bank monetary policy, or wealth preservation. Return only the raw paragraph text.`
+              }
+            ]
+          }
+        ]
+      })
+    });
+
+    const data = await res.json();
+    const insight = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    if (insight) return insight;
+  } catch (err) {
+    console.error('Gemini synthesis fallback:', err);
+  }
+
+  return 'Precious metals, sovereign asset allocations, and high-net-worth liquidity channels continue to respond to shifting macro indicators. This development underscores continued investor emphasis on hard-asset preservation.';
+}
+
 const DEFAULT_IMAGES = [
   'https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1579247075775-68007a70823b?auto=format&fit=crop&w=1200&q=80',
@@ -107,15 +144,22 @@ export async function ingestFeed(sourceId: string): Promise<IngestionResult> {
         const rawContent = (item as any).contentEncoded || item.content || item.summary || '';
         const cleanSummary = truncateText(rawContent.replace(/<[^>]*>?/gm, '').trim(), 320);
 
+        const aiInsight = await generateGeminiEditorialInsight(title, cleanSummary);
+
         const synthesizedContent = `
 <p class="lead text-xl font-serif leading-relaxed text-gray-700 dark:text-gray-200 mb-6">
   ${cleanSummary || title}
 </p>
 
 <div class="my-8 p-6 rounded-xl bg-gold-50 dark:bg-editorial-subtle border border-gold-200 dark:border-editorial-cardDarkBorder">
-  <h4 class="text-xs font-semibold uppercase tracking-wider text-gold-700 dark:text-gold-400 mb-2">Editorial Market Insight</h4>
-  <p class="text-sm text-gray-700 dark:text-gray-300">
-    Precious metals, sovereign asset allocations, and high-net-worth liquidity channels continue to respond to shifting macro indicators. This development underscores continued investor emphasis on hard-asset preservation.
+  <div class="flex items-center gap-2 mb-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+    <h4 class="text-xs font-semibold uppercase tracking-wider text-gold-700 dark:text-gold-400">
+      Executive Editorial Analysis & Bullion Impact
+    </h4>
+  </div>
+  <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-sans">
+    ${aiInsight}
   </p>
 </div>
 
