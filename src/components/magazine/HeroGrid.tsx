@@ -20,10 +20,10 @@ export default function HeroGrid({ leadArticle, secondaryArticles }: HeroGridPro
         <div className="lg:col-span-4 flex flex-col justify-between space-y-4">
           <div className="border-b-2 border-gold-500 pb-2 mb-2 flex items-center justify-between">
             <h3 className="text-xs uppercase font-mono tracking-widest text-gray-900 dark:text-white font-bold">
-              Dispatch Briefs
+              Latest Posts
             </h3>
             <span className="text-[10px] uppercase font-mono text-gold-600 dark:text-gold-400">
-              Live Feed
+              Recent Stories
             </span>
           </div>
 
