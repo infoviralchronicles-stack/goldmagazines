@@ -102,11 +102,11 @@ export default function Footer() {
             Coverage
           </h4>
           <ul className="space-y-2 text-xs">
-            <li><Link href="/category/gold-bullion" className="hover:text-gold-400 transition-colors">Gold & Bullion</Link></li>
-            <li><Link href="/category/global-markets" className="hover:text-gold-400 transition-colors">Global Markets & Macro</Link></li>
-            <li><Link href="/category/luxury-assets" className="hover:text-gold-400 transition-colors">Luxury Assets & Horology</Link></li>
-            <li><Link href="/category/wealth-family-offices" className="hover:text-gold-400 transition-colors">Wealth & Family Offices</Link></li>
-            <li><Link href="/category/culture-lifestyle" className="hover:text-gold-400 transition-colors">Culture & High Living</Link></li>
+            <li><Link href="/category/features" className="hover:text-gold-400 transition-colors">Features & Cover Stories</Link></li>
+            <li><Link href="/category/business" className="hover:text-gold-400 transition-colors">Business & Finance</Link></li>
+            <li><Link href="/category/style-luxury" className="hover:text-gold-400 transition-colors">Style & Luxury</Link></li>
+            <li><Link href="/category/tech" className="hover:text-gold-400 transition-colors">Tech & Innovation</Link></li>
+            <li><Link href="/category/culture" className="hover:text-gold-400 transition-colors">Culture & Lifestyle</Link></li>
           </ul>
         </div>
 

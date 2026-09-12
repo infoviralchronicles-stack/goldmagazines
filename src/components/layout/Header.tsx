@@ -6,11 +6,11 @@ import { Search, Menu, X, Shield, TrendingUp, DollarSign } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 const CATEGORIES = [
-  { name: 'Gold & Bullion', href: '/category/gold-bullion' },
-  { name: 'Global Markets', href: '/category/global-markets' },
-  { name: 'Luxury Assets', href: '/category/luxury-assets' },
-  { name: 'Wealth & Family Offices', href: '/category/wealth-family-offices' },
-  { name: 'Culture & Lifestyle', href: '/category/culture-lifestyle' },
+  { name: 'Features', href: '/category/features' },
+  { name: 'Business & Finance', href: '/category/business' },
+  { name: 'Style & Luxury', href: '/category/style-luxury' },
+  { name: 'Tech & Innovation', href: '/category/tech' },
+  { name: 'Culture & Lifestyle', href: '/category/culture' },
 ];
 
 export default function Header() {
@@ -86,7 +86,7 @@ export default function Header() {
             href="/"
             className="text-gray-900 dark:text-gray-100 hover:text-gold-600 dark:hover:text-gold-400 transition-colors"
           >
-            Dispatch Home
+            Home
           </Link>
           {CATEGORIES.map((cat) => (
             <Link
@@ -101,7 +101,7 @@ export default function Header() {
             href="/search"
             className="text-gold-600 dark:text-gold-400 hover:text-gold-500 transition-colors flex items-center"
           >
-            <TrendingUp className="w-3.5 h-3.5 mr-1" /> Index Search
+            <TrendingUp className="w-3.5 h-3.5 mr-1" /> Search
           </Link>
         </div>
       </nav>
@@ -145,7 +145,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-gray-100 py-1"
             >
-              Dispatch Home
+              Home
             </Link>
             {CATEGORIES.map((cat) => (
               <Link
@@ -162,14 +162,7 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="text-sm text-gold-600 dark:text-gold-400 py-1"
             >
-              Search Archives
-            </Link>
-            <Link
-              href="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-sm text-gray-500 dark:text-gray-400 py-1"
-            >
-              Staff Portal & CMS
+              Search
             </Link>
           </div>
         </div>
