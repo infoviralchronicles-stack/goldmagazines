@@ -137,9 +137,6 @@ export default function Footer() {
             <Link href="/sitemap.xml" className="text-gray-400 hover:text-gold-400 flex items-center">
               XML Sitemap
             </Link>
-            <Link href="/admin" className="text-gold-400 hover:text-gold-300 flex items-center font-medium">
-              <Shield className="w-3.5 h-3.5 mr-1" /> Staff Administration
-            </Link>
           </div>
         </div>
       </div>
