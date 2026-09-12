@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #faf9f6;
+    --foreground: #111827;
+  }
+  .dark {
+    --background: #0b0c0e;
+    --foreground: #f3f4f6;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Editorial Accent Utilities */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #d4af37 0%, #b89025 100%);
+}
+
+.editorial-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+}
+.dark .editorial-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
