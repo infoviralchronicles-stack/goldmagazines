@@ -35,14 +35,14 @@ export default async function HomePage() {
   });
 
   // 4. Fetch Category Spotlights
-  const goldArticles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED', category: { slug: 'gold-bullion' } },
+  const techArticles = await prisma.article.findMany({
+    where: { status: 'PUBLISHED', category: { slug: 'tech' } },
     include: { category: true, author: true },
     take: 4,
   });
 
-  const luxuryArticles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED', category: { slug: 'luxury-assets' } },
+  const styleArticles = await prisma.article.findMany({
+    where: { status: 'PUBLISHED', category: { slug: 'style-luxury' } },
     include: { category: true, author: true },
     take: 4,
   });
@@ -77,22 +77,22 @@ export default async function HomePage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Main Feed (8 Columns) */}
         <div className="lg:col-span-8 space-y-10">
-          {/* Category Section: Gold & Bullion */}
+          {/* Category Section: Tech & Innovation */}
           <section>
             <div className="flex items-center justify-between border-b-2 border-gold-500 pb-2 mb-6">
               <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                <span className="text-gold-500 mr-2">/</span> Gold & Sovereign Vaults
+                <span className="text-gold-500 mr-2">/</span> Tech & Innovation
               </h2>
               <Link
-                href="/category/gold-bullion"
+                href="/category/tech"
                 className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
               >
-                View Dossier &rarr;
+                View Section &rarr;
               </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {goldArticles.map((art) => (
+              {techArticles.map((art) => (
                 <ArticleCard key={art.id} article={art} layout="standard" />
               ))}
             </div>
@@ -101,14 +101,14 @@ export default async function HomePage() {
           {/* In-Feed Responsive Native Ad Placement */}
           <AdBanner slot="456789123" format="horizontal" />
 
-          {/* Category Section: Luxury Tangible Assets */}
+          {/* Category Section: Style & Luxury */}
           <section>
             <div className="flex items-center justify-between border-b-2 border-[#926e1c] pb-2 mb-6">
               <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                <span className="text-gold-600 mr-2">/</span> High Horology & Collectibles
+                <span className="text-gold-600 mr-2">/</span> Style & Luxury
               </h2>
               <Link
-                href="/category/luxury-assets"
+                href="/category/style-luxury"
                 className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
               >
                 View Collection &rarr;
@@ -116,7 +116,7 @@ export default async function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {luxuryArticles.map((art) => (
+              {styleArticles.map((art) => (
                 <ArticleCard key={art.id} article={art} layout="standard" />
               ))}
             </div>
