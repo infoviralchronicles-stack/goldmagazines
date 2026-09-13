@@ -81,13 +81,6 @@ export default function Header() {
           </button>
 
           <ThemeToggle />
-
-          <Link
-            href="#newsletter"
-            className="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-black bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-300 hover:to-gold-500 transition-all shadow-sm"
-          >
-            Dispatch
-          </Link>
         </div>
       </div>
 
