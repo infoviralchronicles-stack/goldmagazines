@@ -32,8 +32,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Merriweather', 'Georgia', 'serif'],
-        sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Merriweather', 'Georgia', 'serif'],
+        sans: ['var(--font-jakarta)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
     },

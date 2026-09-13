@@ -33,7 +33,7 @@ export default function ThemeToggle() {
   };
 
   if (!mounted) {
-    return <div className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800" />;
+    return <div className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 p-2 opacity-0" aria-hidden="true" />;
   }
 
   return (

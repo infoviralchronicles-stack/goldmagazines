@@ -50,12 +50,13 @@ export default function Header() {
         {/* Center Logo */}
         <div className="flex flex-col items-center flex-1 lg:flex-none">
           <Link href="/" className="group flex items-center space-x-3 text-center">
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 drop-shadow-md transition-transform group-hover:scale-105">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 drop-shadow-md transition-transform group-hover:scale-105 flex items-center justify-center">
               <Image
                 src="/gold-bar-icon.svg"
                 alt="GoldMagazines Gold Bar Emblem"
-                fill
-                className="object-contain"
+                width={44}
+                height={44}
+                className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
                 priority
               />
             </div>
