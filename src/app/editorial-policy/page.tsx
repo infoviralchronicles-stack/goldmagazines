@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Editorial & Ethics Policy — Attribution & Independence | GoldMagazines',
+  description: 'Our charter of editorial standards, sovereign reporting principles, transparent attribution, and commercial independence policies at GoldMagazines.',
+  alternates: {
+    canonical: 'https://goldmagazines.com/editorial-policy',
+  },
+};
+
 export default function EditorialPolicyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-8 py-16 space-y-10">

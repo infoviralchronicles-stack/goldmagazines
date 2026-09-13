@@ -1,16 +1,21 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://goldmagazines.com';
+  const baseUrl = 'https://goldmagazines.com';
 
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/api/cron'],
+        disallow: ['/admin/', '/api/'],
+      },
+      {
+        userAgent: ['GPTBot', 'ChatGPT-User', 'Google-Extended', 'PerplexityBot', 'ClaudeBot', 'AnthropicAI', 'cohere-ai'],
+        allow: '/',
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }

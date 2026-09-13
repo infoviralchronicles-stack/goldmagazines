@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service — Legal Agreement & Access Rules | GoldMagazines',
+  description: 'Read the terms of service and acceptable use agreement governing your access to the GoldMagazines digital publication and intelligence archives.',
+  alternates: {
+    canonical: 'https://goldmagazines.com/terms',
+  },
+};
+
 export default function TermsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-8 py-16 space-y-10">

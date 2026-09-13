@@ -1,6 +1,15 @@
+import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
 import ArticleCard from '@/components/magazine/ArticleCard';
 import { Search } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Search Intelligence Archives & Dispatches | GoldMagazines',
+  description: 'Search across GoldMagazines editorial archives for market telemetry, sovereign intelligence, and curated analysis.',
+  alternates: {
+    canonical: 'https://goldmagazines.com/search',
+  },
+};
 
 interface SearchPageProps {
   searchParams: {

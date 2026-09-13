@@ -1,3 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Us | GoldMagazines Editorial Profile & Mission',
+  description: 'Learn about GoldMagazines, our journalistic principles, editorial mission, and global coverage spanning technology, business, luxury lifestyle, and culture.',
+};
+
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-8 py-16 space-y-10">

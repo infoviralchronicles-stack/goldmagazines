@@ -1,3 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Disclaimer | Journalistic & Content Notice | GoldMagazines',
+  description: 'Review the official disclaimer for GoldMagazines clarifying our journalistic reporting standards and informational content scope.',
+};
+
 export default function DisclaimerPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-8 py-16 space-y-10">

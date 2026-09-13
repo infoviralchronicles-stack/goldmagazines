@@ -4,22 +4,21 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://goldmagazines.com'),
   title: {
-    default: 'GoldMagazines — Precious Metals, Macro Markets & Sovereign Living',
+    default: 'GoldMagazines — Technology, Global Business, Style & Culture',
     template: '%s | GoldMagazines',
   },
   description:
-    'GoldMagazines is the authoritative luxury journal delivering real-time intelligence on central bank gold reserves, global macro trends, high horology, and wealth preservation.',
+    'GoldMagazines is the premier digital publication covering cutting-edge technology, global finance, luxury lifestyle, and contemporary cultural movements.',
   keywords: [
-    'gold news',
-    'gold price',
-    'bullion',
-    'sovereign wealth',
-    'luxury assets',
-    'high horology',
-    'family office',
-    'macro economics',
+    'goldmagazines',
+    'tech innovation',
+    'business news',
+    'finance',
+    'luxury lifestyle',
+    'culture',
+    'editorial reports',
   ],
   authors: [{ name: 'GoldMagazines Editorial Desk' }],
   creator: 'GoldMagazines',

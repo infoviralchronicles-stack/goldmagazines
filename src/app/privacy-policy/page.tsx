@@ -1,3 +1,10 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Data Protection & Cookies | GoldMagazines',
+  description: 'Read the official Privacy Policy of GoldMagazines outlining data collection, cookies, Google AdSense compliance, and reader rights.',
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-8 py-16 space-y-10">
