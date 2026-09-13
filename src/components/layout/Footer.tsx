@@ -100,9 +100,6 @@ export default function Footer() {
           <p className="text-xs text-gray-400 leading-relaxed">
             The premier digital publication covering tech innovation, global business, luxury lifestyle, and world culture.
           </p>
-          <div className="text-xs font-mono text-gray-500 pt-2">
-            Zurich &bull; London &bull; Dubai &bull; New York
-          </div>
         </div>
 
         {/* Col 2: Editorial Sections */}
