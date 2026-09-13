@@ -79,49 +79,53 @@ export default async function HomePage() {
         {/* Main Feed (8 Columns) */}
         <div className="lg:col-span-8 space-y-10">
           {/* Category Section: Tech & Innovation */}
-          <section>
-            <div className="flex items-center justify-between border-b-2 border-gold-500 pb-2 mb-6">
-              <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                Tech & Innovation
-              </h2>
-              <Link
-                href="/category/tech"
-                className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
-              >
-                View Section &rarr;
-              </Link>
-            </div>
+          {techArticles.length > 0 && (
+            <section>
+              <div className="flex items-center justify-between border-b-2 border-gold-500 pb-2 mb-6">
+                <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
+                  Tech & Innovation
+                </h2>
+                <Link
+                  href="/category/tech"
+                  className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
+                >
+                  View Section &rarr;
+                </Link>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {techArticles.map((art) => (
-                <ArticleCard key={art.id} article={art} layout="standard" />
-              ))}
-            </div>
-          </section>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {techArticles.map((art) => (
+                  <ArticleCard key={art.id} article={art} layout="standard" />
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* In-Feed Responsive Native Ad Placement */}
           <AdBanner slot="456789123" format="horizontal" />
 
           {/* Category Section: Style & Luxury */}
-          <section>
-            <div className="flex items-center justify-between border-b-2 border-[#926e1c] pb-2 mb-6">
-              <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                Style & Luxury
-              </h2>
-              <Link
-                href="/category/style-luxury"
-                className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
-              >
-                View Collection &rarr;
-              </Link>
-            </div>
+          {styleArticles.length > 0 && (
+            <section>
+              <div className="flex items-center justify-between border-b-2 border-[#926e1c] pb-2 mb-6">
+                <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
+                  Style & Luxury
+                </h2>
+                <Link
+                  href="/category/style-luxury"
+                  className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
+                >
+                  View Collection &rarr;
+                </Link>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {styleArticles.map((art) => (
-                <ArticleCard key={art.id} article={art} layout="standard" />
-              ))}
-            </div>
-          </section>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {styleArticles.map((art) => (
+                  <ArticleCard key={art.id} article={art} layout="standard" />
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
         {/* Sticky Editorial Sidebar (4 Columns) */}
