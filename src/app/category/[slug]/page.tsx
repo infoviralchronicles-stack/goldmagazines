@@ -26,11 +26,15 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
+  const now = new Date();
   const category = await prisma.category.findUnique({
     where: { slug: params.slug },
     include: {
       articles: {
-        where: { status: 'PUBLISHED' },
+        where: {
+          status: 'PUBLISHED',
+          publishedAt: { lte: now },
+        },
         include: { category: true, author: true },
         orderBy: { publishedAt: 'desc' },
       },

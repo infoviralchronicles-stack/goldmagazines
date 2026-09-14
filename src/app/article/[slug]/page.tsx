@@ -71,7 +71,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     },
   });
 
-  if (!article || article.status !== 'PUBLISHED') {
+  const now = new Date();
+  if (!article || article.status !== 'PUBLISHED' || (article.publishedAt && article.publishedAt > now)) {
     notFound();
   }
 

@@ -8,9 +8,14 @@ import { TrendingUp, Sparkles, Compass, ShieldCheck } from 'lucide-react';
 export const revalidate = 60;
 
 export default async function HomePage() {
-  // 1. Fetch Lead & Featured Articles
+  const now = new Date();
+
+  // 1. Fetch Lead & Featured Articles (only live articles)
   const featuredArticles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED' },
+    where: {
+      status: 'PUBLISHED',
+      publishedAt: { lte: now },
+    },
     include: { category: true, author: true },
     orderBy: { publishedAt: 'desc' },
     take: 6,
@@ -21,7 +26,11 @@ export default async function HomePage() {
 
   // 2. Fetch Trending / Most Viewed
   const trendingArticles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED', isTrending: true },
+    where: {
+      status: 'PUBLISHED',
+      isTrending: true,
+      publishedAt: { lte: now },
+    },
     include: { category: true, author: true },
     orderBy: { viewsCount: 'desc' },
     take: 5,
@@ -29,7 +38,11 @@ export default async function HomePage() {
 
   // 3. Fetch Editor's Picks (Always show 3 articles)
   let editorsPicks = await prisma.article.findMany({
-    where: { status: 'PUBLISHED', isEditorsPick: true },
+    where: {
+      status: 'PUBLISHED',
+      isEditorsPick: true,
+      publishedAt: { lte: now },
+    },
     include: { category: true, author: true },
     orderBy: { publishedAt: 'desc' },
     take: 3,
@@ -39,7 +52,11 @@ export default async function HomePage() {
   if (editorsPicks.length < 3) {
     const existingIds = editorsPicks.map((a) => a.id);
     const fillers = await prisma.article.findMany({
-      where: { status: 'PUBLISHED', id: { notIn: existingIds } },
+      where: {
+        status: 'PUBLISHED',
+        publishedAt: { lte: now },
+        id: { notIn: existingIds },
+      },
       include: { category: true, author: true },
       orderBy: { publishedAt: 'desc' },
       take: 3 - editorsPicks.length,
@@ -49,13 +66,21 @@ export default async function HomePage() {
 
   // 4. Fetch Category Spotlights
   const techArticles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED', category: { slug: 'tech' } },
+    where: {
+      status: 'PUBLISHED',
+      category: { slug: 'tech' },
+      publishedAt: { lte: now },
+    },
     include: { category: true, author: true },
     take: 4,
   });
 
   const styleArticles = await prisma.article.findMany({
-    where: { status: 'PUBLISHED', category: { slug: 'style-luxury' } },
+    where: {
+      status: 'PUBLISHED',
+      category: { slug: 'style-luxury' },
+      publishedAt: { lte: now },
+    },
     include: { category: true, author: true },
     take: 4,
   });
