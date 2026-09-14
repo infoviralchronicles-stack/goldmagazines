@@ -48,9 +48,13 @@ export default function Header() {
         </button>
 
         {/* Center Logo */}
-        <div className="flex flex-col items-center flex-1 lg:flex-none">
-          <Link href="/" className="group flex items-center space-x-3 text-center">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 drop-shadow-md transition-transform group-hover:scale-105 flex items-center justify-center">
+        <div className="flex items-center flex-1 lg:flex-none justify-start">
+          <Link
+            href="/"
+            aria-label="GoldMagazines Home"
+            className="group inline-flex items-center space-x-3 text-left cursor-pointer select-none py-1"
+          >
+            <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 drop-shadow-md transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
               <Image
                 src="/gold-bar-icon.svg"
                 alt="GoldMagazines Gold Bar Emblem"
@@ -60,10 +64,10 @@ export default function Header() {
                 priority
               />
             </div>
-            <div className="flex flex-col text-left">
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-serif font-black tracking-widest uppercase text-gray-950 dark:text-white transition-all group-hover:text-gold-500 leading-none">
+            <div className="flex flex-col">
+              <div className="text-xl sm:text-2xl md:text-3xl font-serif font-black tracking-widest uppercase text-gray-950 dark:text-white transition-colors duration-200 group-hover:text-gold-500 leading-none">
                 GOLD<span className="gold-gradient-text font-normal">MAGAZINES</span>
-              </h1>
+              </div>
               <p className="text-[8px] sm:text-[9px] tracking-[0.25em] uppercase font-sans font-medium text-gold-600 dark:text-gold-400 mt-1">
                 The Sovereign Wealth &amp; Luxury Journal
               </p>
