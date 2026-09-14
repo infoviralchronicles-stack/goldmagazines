@@ -73,6 +73,8 @@ Ultimately, Leonardo DiCaprio movies represent far more than individual box offi
     where: { slug: art1Slug },
     update: {
       content: art1Content,
+      featuredImage: '/images/leonardo-dicaprio.jpg',
+      imageAlt: 'Leonardo DiCaprio attending European film premiere',
       readTime: 8,
     },
     create: {
@@ -156,6 +158,8 @@ Ultimately, the question of Tom Cruise's age serves as a testament to the power 
     where: { slug: art2Slug },
     update: {
       content: art2Content,
+      featuredImage: '/images/tom-cruise.jpg',
+      imageAlt: 'Tom Cruise smiling at international film event',
       readTime: 8,
     },
     create: {
