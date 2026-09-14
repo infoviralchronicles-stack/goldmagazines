@@ -183,6 +183,87 @@ Ultimately, the question of Tom Cruise's age serves as a testament to the power 
   });
 
   console.log('Updated Article 2:', article2.title);
+
+  // Article 3: 06:00 PM Slot (Denzel Washington Movies - ~980 words)
+  const art3Slug = 'iconic-denzel-washington-movies-cinema-mastery';
+  const art3Content = `
+<p class="lead text-xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+Few actors in the history of cinema command the screen with the singular moral gravity, explosive kinetic presence, and understated authority of Denzel Washington. Across a majestic career spanning nearly five decades, his filmography stands as a towering testament to theatrical excellence, uncompromising craft, and peerless emotional conviction. Whether inhabiting historical titans, morally conflicted lawmen, or relentless vigilantes, Washington possesses the extraordinary ability to elevate every narrative into an urgent, resonant human drama.
+</p>
+
+<h2 id="breakout-and-historical-conviction">The Early Breakthroughs: Forging Moral Authority on Celluloid</h2>
+<p>
+Washington first captured international critical acclaim through roles that demanded unflinching ethical conviction and profound vulnerability. His portrayal of South African anti-apartheid martyr Steve Biko in Richard Attenborough’s Cry Freedom announced a generational dramatic force capable of radiating integrity without resorting to sentimental melodrama. Shortly thereafter, his blistering performance as Private Trip in Edward Zwick’s Civil War epic Glory earned him his first Academy Award for Best Supporting Actor. The silent tear falling down his face during the disciplinary flogging scene remains one of the most hauntingly powerful moments in American cinema, illustrating an actor capable of communicating centuries of accumulated grief and defiance in a single unbroken glance.
+</p>
+<p>
+Throughout the early 1990s, Washington continued to gravitate toward complex biographical portraits. His monumental performance in Spike Lee’s Malcolm X represents a summit of modern cinematic biographical acting. Embodying the fiery orator across distinct ideological transformations, Washington captured the private tenderness, intellectual ferocity, and tragic foreboding of the revolutionary leader with electrifying accuracy, setting an enduring benchmark for serious dramatic character study.
+</p>
+
+<h2 id="the-scorsese-and-fuqua-alliances">Oscar Triumphs and Nuanced Antiheroes</h2>
+<p>
+While audiences revered Washington as an avatar of steadfast nobility, he astonished global moviegoers in 2001 by deliberately subverting his heroic image in Antoine Fuqua’s Training Day. Inhabiting the corrupt, predatory LAPD narcotics detective Alonzo Harris, Washington turned charisma into a lethal weapon. His swaggering, serpentine performance earned him the Academy Award for Best Actor, making him only the second African American actor in history to win the lead honors. The role proved that his dramatic range could seamlessly transition from righteousness to terrifying moral decay without losing an ounce of screen command.
+</p>
+<p>
+His enduring collaboration with director Tony Scott subsequently yielded a sequence of sophisticated thrillers, most notably Crimson Tide and Man on Fire. In Man on Fire, Washington portrayed John Creasy, a tormented former counter-insurgency operative finding spiritual redemption through protective sacrifice. The role balanced brutal kinetic action with tender paternal warmth, creating an archetype that reshaped the modern revenge thriller and reaffirmed his status as a premier global box office draw.
+</p>
+
+<h2 id="august-wilson-and-theatrical-reverence">August Wilson, Theatrical Purity, and Contemporary Mastery</h2>
+<p>
+In the later stages of his career, Washington increasingly dedicated his creative capital to theatrical preservation and the works of legendary playwright August Wilson. His adaptation of Fences, which he both directed and starred in opposite Viola Davis, preserved the rhythmic poetry and devastating emotional stakes of the American stage on the silver screen. In Troy Maxson, Washington created a tragic, bitter patriarch battling unfulfilled dreams and racial barriers, earning universal critical acclaim and further Academy recognition.
+</p>
+<p>
+His fearless artistic curiosity culminated in Joel Coen’s The Tragedy of Macbeth, where he tackled Shakespearean verse in stark German expressionist monochrome. Filmed on minimalist soundstages, his portrayal of the doomed Scottish king brought raw, weary menace and crystalline diction to centuries-old text, demonstrating a veteran artist who continually sharpens his theatrical instrument. This steadfast allegiance to narrative integrity and classical performance echoes the high standards of <a href="/article/definitive-guide-leonardo-dicaprio-movies-cinema-craft" class="text-gold-600 dark:text-gold-400 font-semibold underline hover:text-gold-500">pure theatrical storytelling</a> celebrated throughout our cinematic archives.
+</p>
+
+<h2 id="cultural-legacy-and-enduring-influence">The Sovereign Legacy of an American Master</h2>
+<p>
+As Washington moves through his seventh decade with milestone productions including Ridley Scott’s Gladiator II, his influence on international acting remains unparalleled. Unlike modern cinematic landscapes dominated by synthetic digital spectacles and interchangeable franchise characters, Denzel Washington movies endure because they are anchored by authentic human conviction, uncompromising discipline, and magnetic dramatic tension.
+</p>
+<p>
+Ultimately, the greatness of his filmography lies not merely in box office milestones or prestigious industry accolades, but in the unshakeable dignity he imparts to every frame. For global audiences and aspiring dramatic artists alike, Denzel Washington represents the definitive standard of screen presence, proving that true cinematic brilliance withstands the test of time.
+</p>
+  `.trim();
+
+  const article3 = await prisma.article.upsert({
+    where: { slug: art3Slug },
+    update: {
+      title: 'Mastering the Screen: The Most Iconic Denzel Washington Movies Ranked and Analyzed',
+      excerpt: 'Explore the definitive cinematic retrospective of Denzel Washington movies, from Academy Award triumphs in Glory and Training Day to August Wilson adaptations and peerless dramatic authority.',
+      content: art3Content,
+      featuredImage: '/images/denzel-washington.jpg',
+      imageAlt: 'Denzel Washington attending prestigious international film premiere in sharp formal attire',
+      publishedAt: new Date('2026-09-14T18:00:00.000+05:00'), // Exactly 6:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'The Most Iconic Denzel Washington Movies Ranked | GoldMagazines',
+      metaDescription: 'Discover the complete retrospective of iconic Denzel Washington movies, featuring his greatest dramatic performances, Oscar wins, and lasting cinema legacy.',
+      categoryId: featuresCat.id,
+      authorId: author.id,
+    },
+    create: {
+      title: 'Mastering the Screen: The Most Iconic Denzel Washington Movies Ranked and Analyzed',
+      slug: art3Slug,
+      excerpt: 'Explore the definitive cinematic retrospective of Denzel Washington movies, from Academy Award triumphs in Glory and Training Day to August Wilson adaptations and peerless dramatic authority.',
+      content: art3Content,
+      featuredImage: '/images/denzel-washington.jpg',
+      imageAlt: 'Denzel Washington attending prestigious international film premiere in sharp formal attire',
+      publishedAt: new Date('2026-09-14T18:00:00.000+05:00'), // Exactly 6:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'The Most Iconic Denzel Washington Movies Ranked | GoldMagazines',
+      metaDescription: 'Discover the complete retrospective of iconic Denzel Washington movies, featuring his greatest dramatic performances, Oscar wins, and lasting cinema legacy.',
+      categoryId: featuresCat.id,
+      authorId: author.id,
+    },
+  });
+
+  console.log('Successfully scheduled Article 3 (Denzel Washington):', article3.title, 'at', article3.publishedAt);
 }
 
 main()
