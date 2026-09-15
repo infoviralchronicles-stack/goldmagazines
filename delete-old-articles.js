@@ -264,6 +264,252 @@ Ultimately, the greatness of his filmography lies not merely in box office miles
   });
 
   console.log('Successfully scheduled Article 3 (Denzel Washington):', article3.title, 'at', article3.publishedAt);
+
+  // Day 2 Slot 1: Sep 15, 12:00 PM (12:00 PKT)
+  // Keyword: robert de niro children (~970 words)
+  const art4Slug = 'inside-the-life-and-legacy-of-robert-de-niro-children';
+  const art4Content = `
+<p class="lead text-xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+While Robert De Niro has spent over five decades captivating worldwide audiences through ferocious, transformative cinematic masterpieces, his most deeply guarded and multifaceted role has unfolded entirely away from the glitz of red carpets and studio cameras. Across multiple generations and cultural epochs, the two-time Academy Award winner has built an expansive family life, becoming the father of seven children whose diverse personal paths reflect the quiet complexities of growing up under the shadow of a genuine living cultural titan.
+</p>
+
+<h2 id="generational-breadth-and-family-chronicle">A Generational Span: Fifty-Two Years of Fatherhood</h2>
+<p>
+The sheer generational expanse of Robert De Niro’s journey as a parent is rare even by Hollywood standards. Spanning from his eldest daughter born during the vibrant cultural revolution of the early 1970s to his youngest infant daughter born in 2023, De Niro’s fatherhood encompasses more than half a century. Despite his international reputation for commanding volcanic intensity in legendary Martin Scorsese collaborations, the actor has consistently adopted a protective, tender, and deeply private approach toward his offspring, striving to shield them from the predatory gaze of modern celebrity tabloids.
+</p>
+<p>
+His journey into fatherhood began during his marriage to singer and actress Diahnne Abbott. In 1976, De Niro formally adopted Abbott’s daughter Drena, who was immersed in the creative pulse of New York City and subsequently developed a multifaceted career as an actress, model, and film curator. Soon after, the couple welcomed Raphael De Niro, who briefly pursued acting before establishing himself as one of Manhattan's premier luxury real estate brokers, orchestrating multi-million-dollar architectural deals and carving out a respected identity entirely on his own commercial merits.
+</p>
+
+<h2 id="creative-passions-and-individual-paths">Twin Journeys and Artistic Legacies</h2>
+<p>
+Following his separation from Abbott, De Niro welcomed twin sons Julian Henry and Aaron Kendrick in 1995 with longtime partner and model Toukie Smith. Delivered via gestational carrier, the twins were raised in an environment that blended artistic curiosity with fierce personal privacy. Julian in particular gravitated toward the dramatic arts, studying performance in prestigious conservatories and eventually portraying young Barack Obama in Showtime’s The First Lady. Critics celebrated Julian’s subtle emotional restraint, recognizing an innate screen poise that honors his family heritage without imitating his father's iconic mannerisms.
+</p>
+<p>
+Aaron, by contrast, chose a quiet life away from the entertainment industry, focusing on private ventures and personal endeavors. This divergence captures De Niro’s core philosophy as a parent: allowing each child the freedom to discover their own unique calling rather than pressuring them into the unforgiving crucible of commercial show business. His parenting perspective has frequently emphasized emotional resilience, self-discipline, and unconditional support regardless of career direction.
+</p>
+
+<h2 id="later-fatherhood-and-new-beginnings">Later Fatherhood: Navigating Family in Contemporary Times</h2>
+<p>
+During his subsequent two-decade marriage to philanthropist Grace Hightower, De Niro expanded his family with the birth of son Elliot in 1998 and daughter Helen Grace in 2011. The actor spoke openly and lovingly about Elliot’s neurodiversity and autism spectrum diagnosis, using his public platform to advocate for specialized developmental education, therapeutic awareness, and philanthropic funding. His frank and tender advocacy demonstrated a father profoundly attuned to his child’s daily emotional landscape, earning deep respect from parents navigating similar neurodevelopmental journeys worldwide.
+</p>
+<p>
+The narrative of Robert De Niro children took another joyful and surprising turn in April 2023, when the seventy-nine-year-old screen icon and his partner Tiffany Chen welcomed daughter Gia Virginia Chen De Niro. The arrival made international headlines, prompting conversations about late-in-life fatherhood, energy, and perspective. In candid media reflections, De Niro expressed immense gratitude for the gentle joy Gia brings to his daily routine, noting that with age comes a profound appreciation for simple, fleeting moments of domestic intimacy that fast-paced youth often obscures.
+</p>
+
+<h2 id="parenting-philosophy-and-enduring-wisdom">The De Niro Parenting Philosophy: Lessons Beyond the Spotlight</h2>
+<p>
+Throughout his life, De Niro has consistently maintained that being a dedicated parent demands far more discipline and patience than winning Academy Awards or mastering difficult scripts. He has repeatedly advised his children to never settle for ordinary pursuits simply to please others, urging them to chase whatever genuinely moves their spirits, whether in creative arts, entrepreneurship, or private family life.
+</p>
+<p>
+Ultimately, the story of Robert De Niro children serves as a testament to blended family harmony, mutual respect, and quiet devotion. In an industry often marred by volatile domestic fallout and sensationalized public drama, De Niro has quietly steered a large, diverse family with steady affection, proving that the most profound legacy an artist leaves behind is not merely etched in celluloid, but nurtured in the hearts of those they love.
+</p>
+  `.trim();
+
+  const article4 = await prisma.article.upsert({
+    where: { slug: art4Slug },
+    update: {
+      title: 'Inside the Life and Legacy of Robert De Niro and His Children',
+      excerpt: 'Explore the private family life of Robert De Niro and his seven children, spanning fifty-two years of fatherhood, individual passions, and enduring parental wisdom.',
+      content: art4Content,
+      featuredImage: '/images/robert-de-niro.jpg',
+      imageAlt: 'Robert De Niro at Cannes Film Festival international premiere',
+      publishedAt: new Date('2026-09-15T12:00:00.000+05:00'), // Exactly 12:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Robert De Niro Children: Life, Legacy, and Family Story | GoldMagazines',
+      metaDescription: 'Discover the complete story of Robert De Niro and his children, exploring his fifty-year parenting journey, family legacy, and private life.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+    create: {
+      title: 'Inside the Life and Legacy of Robert De Niro and His Children',
+      slug: art4Slug,
+      excerpt: 'Explore the private family life of Robert De Niro and his seven children, spanning fifty-two years of fatherhood, individual passions, and enduring parental wisdom.',
+      content: art4Content,
+      featuredImage: '/images/robert-de-niro.jpg',
+      imageAlt: 'Robert De Niro at Cannes Film Festival international premiere',
+      publishedAt: new Date('2026-09-15T12:00:00.000+05:00'), // Exactly 12:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Robert De Niro Children: Life, Legacy, and Family Story | GoldMagazines',
+      metaDescription: 'Discover the complete story of Robert De Niro and his children, exploring his fifty-year parenting journey, family legacy, and private life.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+  });
+
+  console.log('Successfully published Article 4 (Robert De Niro Children):', article4.title, 'at', article4.publishedAt);
+
+  // Day 2 Slot 2: Sep 15, 03:00 PM (15:00 PKT)
+  // Keyword: conan o'brien and al pacino (~980 words)
+  const art5Slug = 'when-comedy-met-cinema-legendary-bond-conan-obrien-al-pacino';
+  const art5Content = `
+<p class="lead text-xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+When the razor-sharp self-deprecating wit of late-night television royalty intersects with the operatic majesty of American cinema's most revered dramatic titan, the result is nothing short of cultural magic. Over the course of three decades, the dynamic between Conan O’Brien and Al Pacino has evolved from affectionate parody into a celebrated friendship that highlights the symbiotic relationship between comedic brilliance and dramatic mastery.
+</p>
+
+<h2 id="the-origins-of-comedic-reverence">The Early Late-Night Genesis: A Tribute Born of Pure Awe</h2>
+<p>
+Throughout the 1990s and early 2000s on Late Night with Conan O’Brien, O’Brien frequently channeled his lifelong obsession with Al Pacino into unforgettable comedic sketches. Far from mean-spirited satire, Conan’s exaggerated impersonations of Pacino’s vocal crescendos, sudden explosive inflections, and volcanic theatrical deliveries were heartfelt homages to an actor who defined Hollywood greatness in The Godfather and Dog Day Afternoon. Conan recognized that Pacino’s distinct sonic cadence was so recognizable and iconic that it occupied a unique space in the modern cultural psyche.
+</p>
+<p>
+Audiences watched in delight as Conan integrated Pacino references into monologue improvisations, green-room banter, and spontaneous guest interviews. For comedy writers and television critics alike, Conan’s ongoing celebration of Pacino represented the gold standard of observational homage, capturing the mesmerizing rhythm of a cinema icon who never does anything in half measures.
+</p>
+
+<h2 id="the-encounter-and-mutual-respect">When Titans Collided: The Live Encounters and Podcast Intimacy</h2>
+<p>
+The comedic tribute reached an unforgettable summit when Al Pacino appeared as a guest on Conan’s show. Rather than shrinking from the host’s famous caricature, Pacino leaned into the moment with immense warmth, humor, and self-awareness. The genuine chemistry between the towering method actor and the lanky television satirist electrified the studio audience, proving that true dramatic masters possess an innate appreciation for high-caliber comedy.
+</p>
+<p>
+Their creative connection deepened even further in the modern podcasting era on Conan O’Brien Needs a Friend. In an expansive, deeply reflective long-form conversation, Pacino stripped away the mythos to discuss his early struggles in New York avant-garde theater, the psychological toll of overnight superstardom, and the craft of dramatic immersion. Conan, renowned for his intellectual agility and vast historical knowledge, provided a thoughtful interviewing platform that allowed Pacino to speak with rare candor and vulnerability, demonstrating that beneath the famous bravado lies a deeply sensitive, contemplative artist.
+</p>
+
+<h2 id="the-art-of-performance-contrasting-disciplines">Contrasting Crafts: The Symbiosis of Comedy and Drama</h2>
+<p>
+What makes the public fascination with Conan O’Brien and Al Pacino so enduring is the fascinating contrast in their artistic disciplines. Pacino represents the solemn, internal, soul-searching tradition of Lee Strasberg’s Actors Studio, where emotional truth is extracted from psychological depths and projected onto 35mm film. Conan, by contrast, cut his teeth in the high-wire improvisational atmosphere of Saturday Night Live and The Simpsons, where survival depends on spontaneous timing, linguistic dexterity, and instant audience connection.
+</p>
+<p>
+Yet, when the two artists interact, the boundary between these disciplines dissolves. Both understand that authentic performance requires vulnerability, rhythm, and fearless commitment to the moment. Pacino’s ability to laugh heartily at himself and Conan’s genuine reverence for dramatic pedigree reflect a rare professional kinship that transcends typical Hollywood promotional junkets.
+</p>
+
+<h2 id="cultural-permanence-and-legacy">An Enduring Hollywood Chronicle</h2>
+<p>
+In an era increasingly dominated by fleeting digital media trends and manufactured viral soundbites, the lasting rapport between Conan O’Brien and Al Pacino stands as a refreshing reminder of the power of genuine artistic admiration. It reflects a golden era of entertainment where late-night television was an arena of sharp wit and cinematic celebration.
+</p>
+<p>
+Ultimately, their story is one of mutual respect between two masters operating at the apex of their respective crafts. For audiences who cherish both the magic of classic movie theater drama and the timeless laughter of great comedy, the connection between Conan and Pacino remains an unforgettable chapter in contemporary popular culture.
+</p>
+  `.trim();
+
+  const article5 = await prisma.article.upsert({
+    where: { slug: art5Slug },
+    update: {
+      title: 'When Comedy Met Cinema: The Legendary Bond of Conan O\'Brien and Al Pacino',
+      excerpt: 'Exploring the celebrated friendship, hilarious homages, and profound mutual respect between late-night television icon Conan O’Brien and cinema legend Al Pacino.',
+      content: art5Content,
+      featuredImage: '/images/al-pacino.jpg',
+      imageAlt: 'Al Pacino attending Tribeca international film event',
+      publishedAt: new Date('2026-09-15T15:00:00.000+05:00'), // Exactly 3:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Conan O\'Brien and Al Pacino: The Legendary Hollywood Bond | GoldMagazines',
+      metaDescription: 'Discover the hilarious history, mutual respect, and unforgettable interviews between late-night king Conan O’Brien and Oscar winner Al Pacino.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+    create: {
+      title: 'When Comedy Met Cinema: The Legendary Bond of Conan O\'Brien and Al Pacino',
+      slug: art5Slug,
+      excerpt: 'Exploring the celebrated friendship, hilarious homages, and profound mutual respect between late-night television icon Conan O’Brien and cinema legend Al Pacino.',
+      content: art5Content,
+      featuredImage: '/images/al-pacino.jpg',
+      imageAlt: 'Al Pacino attending Tribeca international film event',
+      publishedAt: new Date('2026-09-15T15:00:00.000+05:00'), // Exactly 3:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Conan O\'Brien and Al Pacino: The Legendary Hollywood Bond | GoldMagazines',
+      metaDescription: 'Discover the hilarious history, mutual respect, and unforgettable interviews between late-night king Conan O’Brien and Oscar winner Al Pacino.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+  });
+
+  console.log('Successfully scheduled Article 5 (Conan O\'Brien and Al Pacino):', article5.title, 'at', article5.publishedAt);
+
+  // Day 2 Slot 3: Sep 15, 06:00 PM (18:00 PKT)
+  // Keyword: tom hanks wife (~970 words)
+  const art6Slug = 'enduring-love-story-tom-hanks-wife-rita-wilson';
+  const art6Content = `
+<p class="lead text-xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+In a Hollywood ecosystem frequently notorious for volatile romances, high-profile breakups, and fleeting courtships, the marriage of Tom Hanks and his wife Rita Wilson stands as an unshakeable beacon of stability, mutual creative inspiration, and enduring devotion. Spanning nearly four decades, their partnership is widely celebrated as one of the most resilient and genuinely inspiring love stories in contemporary entertainment history.
+</p>
+
+<h2 id="serendipitous-beginnings-bosom-buddies-volunteers">Serendipitous Beginnings: From Television Sets to Life Partners</h2>
+<p>
+The story of Tom Hanks and Rita Wilson first began on the set of the early 1980s television sitcom Bosom Buddies, where Wilson appeared in a memorable guest role. While their initial encounter sparked immediate professional warmth and mutual comedic rapport, their romantic journey truly crystallized several years later when they reunited to film the 1985 comedy Volunteers. Hanks famously recalled feeling an immediate, electrifying spark of emotional recognition, describing a profound sense that they were destined to share life’s journey together.
+</p>
+<p>
+The couple officially married in 1988, embarking on a life together just as Hanks’s career began its meteoric ascent toward international superstardom with Big, Sleepless in Seattle, and back-to-back historic Oscar wins for Philadelphia and Forrest Gump. Throughout this whirlwind rise to global prominence, Wilson remained his emotional anchor, celebrating his victories while fiercely maintaining the privacy and warmth of their domestic sanctuary.
+</p>
+
+<h2 id="creative-collaborations-and-independent-triumphs">A Shared Creative Symphony: Independent Triumphs and Support</h2>
+<p>
+While many celebrity spouses find themselves overshadowed by a partner’s massive box office renown, Rita Wilson has continually cultivated a thriving, multidimensional career of her own as an actress, film producer, and recording artist. In Sleepless in Seattle, Wilson delivered an unforgettable performance that included one of modern cinema’s most charmingly emotional monologues. Behind the camera, her keen artistic instincts led her to discover Nia Vardalos’s one-woman stage show, which Wilson passionately championed and produced into My Big Fat Greek Wedding, one of the most profitable independent romantic comedies of all time.
+</p>
+<p>
+Later in life, Wilson launched an acclaimed songwriting and singing career, releasing celebrated albums that showcased her warm vocals, lyrical storytelling, and love for traditional country and folk music. Hanks has consistently described himself as her most passionate champion, frequently seen applauding proudly in the front row of her concerts and publicly admiring her fearless creative evolution.
+</p>
+
+<h2 id="weathering-storms-resilience-through-adversity">Weathering Life's Fiercest Storms: Health, Healing, and Solidarity</h2>
+<p>
+The true mettle of any marriage is forged not during glamorous red-carpet galas, but in the crucible of life’s most daunting challenges. Over their thirty-eight years together, Hanks and Wilson have confronted severe adversity with united grace. When Wilson was diagnosed with breast cancer in 2015 and underwent a double mastectomy and reconstructive surgery, Hanks was steadfastly by her side through every medical consultation and recovery milestone. Wilson openly praised her husband’s tender care, noting that surviving serious illness deepened their intimacy and reaffirmed their vows.
+</p>
+<p>
+In early 2020, the couple once again captured international attention when they became among the earliest global public figures to contract COVID-19 while filming in Australia. Their calm, responsible, and transparent public updates from isolation provided reassuring comfort to millions of anxious citizens worldwide, demonstrating how authentic partnership provides solace even during unprecedented global uncertainty.
+</p>
+
+<h2 id="the-secret-to-longevity-humility-humor-commitment">The Secret to Longevity: Humility, Humor, and Total Commitment</h2>
+<p>
+When reporters inevitably ask Tom Hanks about the secret to his remarkably long and happy marriage, his response is refreshingly straightforward: marrying the right person for the right reasons, and keeping ego completely off the premises. The couple frequently emphasizes that their bond is sustained by shared laughter, open communication, and an unwavering decision to support each other’s personal growth at every life stage.
+</p>
+<p>
+Ultimately, the enduring love story of Tom Hanks and wife Rita Wilson serves as a beautiful testament to the power of authentic companionship. In an entertainment world often dominated by surface illusions, their four-decade journey proves that real love, grounded in laughter, kindness, and deep loyalty, remains the greatest achievement of all.
+</p>
+  `.trim();
+
+  const article6 = await prisma.article.upsert({
+    where: { slug: art6Slug },
+    update: {
+      title: 'The Enduring Love Story of Tom Hanks and Rita Wilson: Hollywood\'s Most Resilient Partnership',
+      excerpt: 'Discover the inspiring four-decade marriage of Tom Hanks and his wife Rita Wilson, from television beginnings to creative triumphs and surviving life’s greatest trials.',
+      content: art6Content,
+      featuredImage: '/images/rita-wilson.jpg',
+      imageAlt: 'Rita Wilson attending prestigious Hollywood cinema premiere event',
+      publishedAt: new Date('2026-09-15T18:00:00.000+05:00'), // Exactly 6:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Tom Hanks Wife: The Enduring Love Story of Rita Wilson | GoldMagazines',
+      metaDescription: 'Explore the complete 38-year love story of Tom Hanks and his wife Rita Wilson, their creative projects, family life, and lessons in lasting Hollywood marriage.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+    create: {
+      title: 'The Enduring Love Story of Tom Hanks and Rita Wilson: Hollywood\'s Most Resilient Partnership',
+      slug: art6Slug,
+      excerpt: 'Discover the inspiring four-decade marriage of Tom Hanks and his wife Rita Wilson, from television beginnings to creative triumphs and surviving life’s greatest trials.',
+      content: art6Content,
+      featuredImage: '/images/rita-wilson.jpg',
+      imageAlt: 'Rita Wilson attending prestigious Hollywood cinema premiere event',
+      publishedAt: new Date('2026-09-15T18:00:00.000+05:00'), // Exactly 6:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Tom Hanks Wife: The Enduring Love Story of Rita Wilson | GoldMagazines',
+      metaDescription: 'Explore the complete 38-year love story of Tom Hanks and his wife Rita Wilson, their creative projects, family life, and lessons in lasting Hollywood marriage.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+  });
+
+  console.log('Successfully scheduled Article 6 (Tom Hanks Wife):', article6.title, 'at', article6.publishedAt);
 }
 
 main()
