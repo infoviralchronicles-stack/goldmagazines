@@ -75,6 +75,28 @@ export default async function HomePage() {
     take: 4,
   });
 
+  const cultureArticles = await prisma.article.findMany({
+    where: {
+      status: 'PUBLISHED',
+      category: { slug: 'culture' },
+      publishedAt: { lte: now },
+    },
+    include: { category: true, author: true },
+    orderBy: { publishedAt: 'desc' },
+    take: 4,
+  });
+
+  const featuresArticles = await prisma.article.findMany({
+    where: {
+      status: 'PUBLISHED',
+      category: { slug: 'features' },
+      publishedAt: { lte: now },
+    },
+    include: { category: true, author: true },
+    orderBy: { publishedAt: 'desc' },
+    take: 4,
+  });
+
   const styleArticles = await prisma.article.findMany({
     where: {
       status: 'PUBLISHED',
@@ -142,46 +164,50 @@ export default async function HomePage() {
           <AdBanner slot="456789123" format="horizontal" />
 
           {/* Category Section: Features & Long-form */}
-          <section>
-            <div className="flex items-center justify-between border-b-2 border-gold-500 pb-2 mb-6">
-              <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                Features & Cover Stories
-              </h2>
-              <Link
-                href="/category/features"
-                className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
-              >
-                View Archive &rarr;
-              </Link>
-            </div>
+          {featuresArticles.length > 0 && (
+            <section>
+              <div className="flex items-center justify-between border-b-2 border-gold-500 pb-2 mb-6">
+                <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
+                  Features & Cover Stories
+                </h2>
+                <Link
+                  href="/category/features"
+                  className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
+                >
+                  View Archive &rarr;
+                </Link>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {featuredArticles.slice(1, 5).map((art) => (
-                <ArticleCard key={art.id} article={art} layout="standard" />
-              ))}
-            </div>
-          </section>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {(featuresArticles.length >= 4 ? featuresArticles.slice(0, 4) : featuresArticles.slice(0, 2)).map((art) => (
+                  <ArticleCard key={art.id} article={art} layout="standard" />
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Category Section: Culture & Lifestyle */}
-          <section>
-            <div className="flex items-center justify-between border-b-2 border-gold-400 pb-2 mb-6">
-              <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
-                Culture & Lifestyle
-              </h2>
-              <Link
-                href="/category/culture"
-                className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
-              >
-                View Collection &rarr;
-              </Link>
-            </div>
+          {cultureArticles.length > 0 && (
+            <section>
+              <div className="flex items-center justify-between border-b-2 border-gold-400 pb-2 mb-6">
+                <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
+                  Culture & Lifestyle
+                </h2>
+                <Link
+                  href="/category/culture"
+                  className="text-xs uppercase font-mono tracking-wider text-gold-600 dark:text-gold-400 hover:underline"
+                >
+                  View Collection &rarr;
+                </Link>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {editorsPicks.map((art) => (
-                <ArticleCard key={art.id} article={art} layout="standard" />
-              ))}
-            </div>
-          </section>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {(cultureArticles.length >= 4 ? cultureArticles.slice(0, 4) : cultureArticles.slice(0, 2)).map((art) => (
+                  <ArticleCard key={art.id} article={art} layout="standard" />
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Category Section: Style & Luxury */}
           {styleArticles.length > 0 && (
