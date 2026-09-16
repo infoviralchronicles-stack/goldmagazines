@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <Mail className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-gray-200">Editorial & Press</p>
-                  <p>editor@goldmagazines.com</p>
+                  <a href="mailto:bulletmagazines@gmail.com" className="text-gold-600 dark:text-gold-400 hover:underline">bulletmagazines@gmail.com</a>
                 </div>
               </div>
 

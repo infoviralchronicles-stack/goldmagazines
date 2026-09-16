@@ -39,6 +39,14 @@ export default function PrivacyPolicyPage() {
         <p>
           Google, as a third-party vendor, uses cookies to serve ads on GoldMagazines. Google&apos;s use of the DART cookie enables it to serve ads to our users based on their visit to our site and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.
         </p>
+
+        <h2 className="text-xl font-serif font-bold text-gray-950 dark:text-white">5. Contact & Data Privacy Requests</h2>
+        <p>
+          If you have questions regarding this Privacy Policy or wish to request data deletion, please contact our data privacy desk at{' '}
+          <a href="mailto:bulletmagazines@gmail.com" className="text-gold-600 dark:text-gold-400 font-semibold underline hover:text-gold-500">
+            bulletmagazines@gmail.com
+          </a>.
+        </p>
       </div>
     </div>
   );

@@ -100,6 +100,11 @@ export default function Footer() {
           <p className="text-xs text-gray-400 leading-relaxed">
             The premier digital publication covering tech innovation, global business, luxury lifestyle, and world culture.
           </p>
+          <div className="pt-1 text-xs">
+            <a href="mailto:bulletmagazines@gmail.com" className="text-gray-400 hover:text-gold-400 transition-colors font-mono">
+              bulletmagazines@gmail.com
+            </a>
+          </div>
         </div>
 
         {/* Col 2: Editorial Sections */}

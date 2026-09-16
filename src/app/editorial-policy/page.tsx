@@ -43,6 +43,14 @@ export default function EditorialPolicyPage() {
         <p>
           When factual inaccuracies or telemetry calculation errors occur, our policy is prompt, transparent correction. Corrections are marked with an updated timestamp at the foot of the affected dispatch.
         </p>
+
+        <h2 className="text-2xl font-serif font-bold text-gray-950 dark:text-white mt-8">4. Editorial Inquiries & Corrections Desk</h2>
+        <p>
+          To submit editorial inquiries, news tips, or correction requests, reach our senior correspondents directly at{' '}
+          <a href="mailto:bulletmagazines@gmail.com" className="text-gold-600 dark:text-gold-400 font-semibold underline hover:text-gold-500">
+            bulletmagazines@gmail.com
+          </a>.
+        </p>
       </div>
     </div>
   );
