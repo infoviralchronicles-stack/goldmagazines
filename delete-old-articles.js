@@ -13,8 +13,9 @@ async function main() {
   const author = await prisma.user.findFirst();
   const featuresCat = await prisma.category.findUnique({ where: { slug: 'features' } });
   const cultureCat = await prisma.category.findUnique({ where: { slug: 'culture' } });
+  const businessCat = await prisma.category.findUnique({ where: { slug: 'business' } });
 
-  if (!author || !featuresCat || !cultureCat) {
+  if (!author || !featuresCat || !cultureCat || !businessCat) {
     throw new Error('Author or categories missing');
   }
 
@@ -510,6 +511,252 @@ Ultimately, the enduring love story of Tom Hanks and wife Rita Wilson serves as 
   });
 
   console.log('Successfully scheduled Article 6 (Tom Hanks Wife):', article6.title, 'at', article6.publishedAt);
+
+  // Day 3 Slot 1: Sep 16, 12:00 PM (12:00 PKT)
+  // Keyword: brad pitt net worth (~980 words)
+  const art7Slug = 'brad-pitt-net-worth-hollywood-earnings-plan-b-investments';
+  const art7Content = `
+<p class="lead text-xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+When financial analysts and entertainment enthusiasts examine Brad Pitt net worth, they uncover a masterclass in modern celebrity wealth accumulation. Beyond commanding historic eight-figure acting salaries for over three decades, Pitt has systematically transformed his Hollywood cultural cachet into a sovereign commercial empire spanning Oscar-winning film production, prime European viticulture, and prime architectural real estate portfolios.
+</p>
+
+<h2 id="box-office-earnings-and-marquee-salaries">Box Office Dominance: Four Decades of Top-Tier Acting Compensation</h2>
+<p>
+Brad Pitt first commanded significant commercial attention in 1991 following his magnetic breakthrough in Thelma & Louise, a role that reportedly paid him just six thousand dollars. However, his rapid ascension into Hollywood's definitive leading-man echelon revolutionized his earning power. By the mid-1990s, projects such as Se7en, Twelve Monkeys, and Sleepers commanded standard ten-million-dollar guarantees. As his box office reliability cemented, Pitt routinely commanded twenty million dollars per picture, with celebrated turns in Ocean’s Eleven, Troy, and Mr. & Mrs. Smith generating massive worldwide backend profit participations.
+</p>
+<p>
+Rather than resting on conventional studio salaries, Pitt frequently accepted equity partnerships and reduced upfront fees in exchange for generous gross backend points on passion projects. His collaborations with Quentin Tarantino on Inglourious Basterds and Once Upon a Time in Hollywood, the latter earning him the Academy Award for Best Supporting Actor, demonstrated a strategic balance between artistic integrity and lucrative commercial dividends. For his recent high-octane Formula One feature with Apple Original Films, Pitt reportedly negotiated an extraordinary thirty-million-dollar salary, proving that his marquee box office magnetism remains fully intact in the streaming era.
+</p>
+
+<h2 id="plan-b-entertainment-and-the-production-windfall">Plan B Entertainment: Hollywood's Most Lucrative Boutique Production House</h2>
+<p>
+The single most transformative financial engine behind Brad Pitt net worth is not his acting catalog, but his visionary acumen as a film producer. Co-founded in 2001 alongside Jennifer Aniston and Brad Grey, Pitt assumed sole ownership of Plan B Entertainment following his divorce in 2005. Under his stewardship, Plan B rejected routine studio tentpoles to champion audacious, auteur-driven dramatic narratives that conventional studios deemed commercially risky.
+</p>
+<p>
+This daring artistic strategy paid enormous cultural and commercial dividends. Plan B produced three Best Picture Academy Award winners: Martin Scorsese’s The Departed, Steve McQueen’s 12 Years a Slave, and Barry Jenkins’s Moonlight, alongside critically acclaimed global box office hits like World War Z, The Big Short, and Moneyball. In late 2022, Pitt engineered a landmark corporate transaction by selling a sixty percent controlling stake in Plan B to French media conglomerate Mediawan. The transaction valued the production shingle at upwards of three hundred million dollars, delivering a monumental liquidity windfall that dramatically elevated Pitt's sovereign private net worth.
+</p>
+
+<h2 id="chateau-miraval-and-luxury-tangible-assets">Château Miraval and Prestigious Tangible Asset Holdings</h2>
+<p>
+Beyond entertainment media, Pitt’s financial portfolio is heavily anchored in tangible high-luxury physical assets. Most famous among these is Château Miraval, an expansive twelve-hundred-acre estate and vineyard in the Correns village of Southern France, purchased in 2008 for approximately sixty million dollars. In partnership with the renowned Perrin winemaking family, the estate developed Miraval Côtes de Provence Rosé into one of the world's most acclaimed and commercially lucrative luxury wine labels. Industry valuations frequently assess the commercial viticulture enterprise and surrounding real estate at hundreds of millions of dollars.
+</p>
+<p>
+Complementing his French estate is an enviable collection of world-class architectural properties. An ardent devotee of modernist architecture, Pitt has acquired and meticulously curated trophy residences across Los Angeles, including historic Craftsman compounds in Los Feliz, coastal estates in Carmel Highlands, and secluded luxury properties in Mallorca. His discerning taste in mid-century architecture and functional design furniture represents a highly defensive capital allocation hedge against currency fluctuations.
+</p>
+
+<h2 id="entrepreneurial-ventures-and-current-financial-valuation">Modern Valuation: Inside Brad Pitt's Estimated $400 Million Fortune</h2>
+<p>
+In recent years, Pitt has further diversified his commercial footprint by launching God’s True Cashmere, a luxury apparel brand focusing on ethical materials, and Beau Domaine, an innovative genderless skincare line utilizing patented antioxidants sourced from the antioxidant-rich grape marc of Château Miraval. These lifestyle ventures leverage his global recognition while operating within high-margin luxury consumer categories.
+</p>
+<p>
+As of 2026, authoritative financial consensus estimates Brad Pitt net worth at approximately four hundred million dollars. What distinguishes his fortune from transient celebrity wealth is structural diversification. By reinvesting acting earnings into intellectual property, production equity, fine wine, and trophy real estate, Pitt has constructed an enduring financial empire that mirrors the discipline of institutional family offices, ensuring that his financial sovereign stature remains as formidable as his screen legacy.
+</p>
+  `.trim();
+
+  const article7 = await prisma.article.upsert({
+    where: { slug: art7Slug },
+    update: {
+      title: 'Brad Pitt Net Worth: Hollywood Fortunes, Plan B Productions, and Luxury Asset Portfolios',
+      excerpt: 'Explore the definitive breakdown of Brad Pitt net worth, analyzing his multi-million acting salaries, landmark Plan B Entertainment sale, French winery investments, and luxury real estate.',
+      content: art7Content,
+      featuredImage: '/images/brad-pitt.jpg',
+      imageAlt: 'Brad Pitt attending international film festival premiere in sharp tailoring',
+      publishedAt: new Date('2026-09-16T12:00:00.000+05:00'), // Exactly 12:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Brad Pitt Net Worth: Hollywood Fortunes & Business Empire | GoldMagazines',
+      metaDescription: 'Discover the full analysis of Brad Pitt net worth, including movie earnings, the Plan B sale, Château Miraval winery, and his multi-million dollar business portfolio.',
+      categoryId: businessCat.id,
+      authorId: author.id,
+    },
+    create: {
+      title: 'Brad Pitt Net Worth: Hollywood Fortunes, Plan B Productions, and Luxury Asset Portfolios',
+      slug: art7Slug,
+      excerpt: 'Explore the definitive breakdown of Brad Pitt net worth, analyzing his multi-million acting salaries, landmark Plan B Entertainment sale, French winery investments, and luxury real estate.',
+      content: art7Content,
+      featuredImage: '/images/brad-pitt.jpg',
+      imageAlt: 'Brad Pitt attending international film festival premiere in sharp tailoring',
+      publishedAt: new Date('2026-09-16T12:00:00.000+05:00'), // Exactly 12:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Brad Pitt Net Worth: Hollywood Fortunes & Business Empire | GoldMagazines',
+      metaDescription: 'Discover the full analysis of Brad Pitt net worth, including movie earnings, the Plan B sale, Château Miraval winery, and his multi-million dollar business portfolio.',
+      categoryId: businessCat.id,
+      authorId: author.id,
+    },
+  });
+
+  console.log('Successfully published Article 7 (Brad Pitt Net Worth):', article7.title, 'at', article7.publishedAt);
+
+  // Day 3 Slot 2: Sep 16, 03:00 PM (15:00 PKT)
+  // Keyword: morgan freeman (~980 words)
+  const art8Slug = 'the-inimitable-voice-and-cinema-mastery-of-morgan-freeman';
+  const art8Content = `
+<p class="lead text-xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+Few figures in the history of motion pictures embody wisdom, serene moral authority, and dramatic gravitas quite like Morgan Freeman. Known across the globe for his resonant baritone cadence and peerless dramatic restraint, Freeman’s cinematic career represents an extraordinary journey of patience, late-blooming brilliance, and an unshakeable dedication to truthful performance.
+</p>
+
+<h2 id="late-blooming-brilliance-and-theatrical-roots">The Patient Rise: Overcoming Barriers Through Stage Discipline</h2>
+<p>
+Unlike child stars or overnight screen sensations, Morgan Freeman did not achieve widespread cinematic renown until his fifties. Born in Memphis, Tennessee, during an era of profound social upheaval, Freeman initially served in the United States Air Force before pursuing his passionate devotion to the dramatic arts. Throughout the 1960s and 1970s, he honed his craft in the rigorous crucible of Off-Broadway and Broadway theater, earning multiple Obie Awards and developing the crystalline vocal precision that would later become his international calling card.
+</p>
+<p>
+His breakthrough came in 1987 with Street Smart, where his chilling, volatile portrayal of a Times Square hustler earned him his first Academy Award nomination. The performance stunned critics who had previously known him primarily through television children's programming on The Electric Company. Freeman demonstrated an uncanny ability to radiate quiet menace and magnetic charisma within the same breath, announcing the arrival of a formidable dramatic powerhouse on the big screen.
+</p>
+
+<h2 id="the-legendary-shawshank-and-oscar-triumph">A Golden Decade: The Shawshank Redemption and Academy Honors</h2>
+<p>
+The 1990s witnessed Freeman establishing himself as cinema's definitive moral compass. In The Shawshank Redemption, his portrayal of Ellis Boyd "Red" Redding provided the philosophical heartbeat and iconic narrative voiceover for what is widely considered one of the greatest motion pictures ever produced. Freeman grounded the narrative of hope and institutional imprisonment with understated dignity, delivering voiceover reflections that continue to soothe and inspire millions of viewers across generations.
+</p>
+<p>
+Shortly thereafter, his haunting partnership with Brad Pitt and director David Fincher in Se7en showcased Freeman as Detective William Somerset, a weary intellectual navigating the darkest corridors of human depravity. His career reached its official Academy peak in 2004 with Clint Eastwood’s Million Dollar Baby. Portraying Eddie "Scrap-Iron" Dupris, an aging former boxer who serves as gym custodian, Freeman’s poignant, lived-in performance earned him the Academy Award for Best Supporting Actor, capping decades of masterwork with well-deserved industry recognition.
+</p>
+
+<h2 id="the-voice-of-authority-and-cultural-permanence">The Voice of Sovereign Authority: Christopher Nolan and Cultural Status</h2>
+<p>
+As contemporary cinema transitioned into epic modern blockbusters, Freeman lent indispensable legitimacy to high-concept franchises. In Christopher Nolan’s historic Dark Knight trilogy, Freeman inhabited Lucius Fox, the ethical corporate mind equipping Batman with advanced aerospace technology. His scenes balanced sharp intellectual humor with steadfast morality, anchoring the film’s grand comic architecture in realistic corporate diplomacy and technological innovation.
+</p>
+<p>
+Simultaneously, Freeman’s singular vocal instrument transformed him into the definitive voice of documentary storytelling, educational science specials, and even the divine itself in Bruce Almighty. Far from a mere vocal trick, his narration conveys deep human understanding, scientific curiosity, and existential calm, making him one of the most trusted and recognizable voices in modern media history.
+</p>
+
+<h2 id="the-freeman-philosophy-and-timeless-legacy">An Enduring Benchmark of Dramatic Excellence</h2>
+<p>
+Now moving through his late eighties, Freeman continues to work with boundless creative energy, championing historical preservation, environmental stewardship, and independent cinema through his Revelations Entertainment production shingle. He has consistently dismissed retirement, maintaining that true dramatic artists never stop observing the human condition.
+</p>
+<p>
+Ultimately, Morgan Freeman movies and performances stand as enduring monuments of grace, patience, and unwavering craft. His artistic legacy proves that profound dramatic authority is not manufactured through youth or sensationalism, but forged through decades of patience, quiet dignity, and genuine reverence for great storytelling.
+</p>
+  `.trim();
+
+  const article8 = await prisma.article.upsert({
+    where: { slug: art8Slug },
+    update: {
+      title: 'The Inimitable Voice and Cinema Mastery of Morgan Freeman',
+      excerpt: 'Explore the legendary cinematic journey of Morgan Freeman, from theater roots and Street Smart to The Shawshank Redemption, Oscar triumph, and timeless moral authority.',
+      content: art8Content,
+      featuredImage: '/images/morgan-freeman.jpg',
+      imageAlt: 'Morgan Freeman in sharp formal appearance with distinguished presence',
+      publishedAt: new Date('2026-09-16T15:00:00.000+05:00'), // Exactly 3:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Morgan Freeman: The Inimitable Voice & Cinema Mastery | GoldMagazines',
+      metaDescription: 'Discover the cinematic retrospective of Morgan Freeman, exploring his greatest movie roles, Oscar wins, iconic voice, and lasting cultural legacy.',
+      categoryId: featuresCat.id,
+      authorId: author.id,
+    },
+    create: {
+      title: 'The Inimitable Voice and Cinema Mastery of Morgan Freeman',
+      slug: art8Slug,
+      excerpt: 'Explore the legendary cinematic journey of Morgan Freeman, from theater roots and Street Smart to The Shawshank Redemption, Oscar triumph, and timeless moral authority.',
+      content: art8Content,
+      featuredImage: '/images/morgan-freeman.jpg',
+      imageAlt: 'Morgan Freeman in sharp formal appearance with distinguished presence',
+      publishedAt: new Date('2026-09-16T15:00:00.000+05:00'), // Exactly 3:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'Morgan Freeman: The Inimitable Voice & Cinema Mastery | GoldMagazines',
+      metaDescription: 'Discover the cinematic retrospective of Morgan Freeman, exploring his greatest movie roles, Oscar wins, iconic voice, and lasting cultural legacy.',
+      categoryId: featuresCat.id,
+      authorId: author.id,
+    },
+  });
+
+  console.log('Successfully scheduled Article 8 (Morgan Freeman):', article8.title, 'at', article8.publishedAt);
+
+  // Day 3 Slot 3: Sep 16, 06:00 PM (18:00 PKT)
+  // Keyword: how old is keanu reeves (~970 words)
+  const art9Slug = 'how-old-is-keanu-reeves-ageless-cinema-icon-action-legacy';
+  const art9Content = `
+<p class="lead text-xl font-serif italic text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+When international filmgoers search how old Keanu Reeves is, the inquiry is almost always fueled by widespread wonder. For over four decades, Reeves has graced silver screens as a cyberpunk messiah, a philosophical hitman, and an enduring Hollywood gentleman, all while possessing a youthful vitality and physical endurance that seemingly defies the biological passage of time.
+</p>
+
+<h2 id="chronological-milestones-and-ageless-reality">Chronological Truth: A Four-Decade Journey on Screen</h2>
+<p>
+To address the core factual question directly: Keanu Reeves was born on September 2, 1964, in Beirut, Lebanon, making him sixty-two years of age. Raised primarily in Toronto, Canada, Reeves embarked on his acting career in the mid-1980s, establishing early fame through beloved comedies like Bill & Ted’s Excellent Adventure and intense dramatic indies like River’s Edge and My Own Private Idaho. While many leading stars from that vibrant era have transitioned into character roles or stepped away from intense physically demanding productions, Reeves continues to headline multi-million-dollar action franchises requiring relentless physical conditioning.
+</p>
+<p>
+What makes his age a subject of universal fascination is the consistency of his screen presence. Across multiple generation-defining cinematic eras, from the groundbreaking kinetic martial arts of The Matrix in 1999 to the relentless gun-fu choreography of the John Wick saga in recent years, Reeves moves with the fluidity, speed, and cardiovascular conditioning of an athlete half his age, creating a cultural reputation as Hollywood’s most ageless icon.
+</p>
+
+<h2 id="tactical-discipline-and-stunt-dedication">The John Wick Discipline: Elite Martial Arts and Tactical Mastery</h2>
+<p>
+What sustains Reeves’s extraordinary screen stamina is not mere good genetics, but a legendary work ethic and grueling martial arts training regimen. Preparing for each John Wick installment demands months of intensive daily preparation involving Brazilian jiu-jitsu, judo, three-gun tactical weapons manipulation, and stunt driving. Reeves routinely executes upwards of ninety percent of his own action sequences, enduring physical collisions, judo throws, and grueling staircase descents without digital body doubles.
+</p>
+<p>
+Stunt coordinators and Hollywood directors frequently describe Reeves as the most dedicated and selfless collaborator in modern action cinema. Rather than demanding shortcuts or CGI assistance, he approaches performance with the discipline of a classical martial artist, demonstrating that authentic kinetic weight on screen can only be achieved through genuine physical exertion and unwavering preparation.
+</p>
+
+<h2 id="humility-philanthropy-and-the-internet-sweetheart">Beyond the Action: A Legacy of Generosity and Humility</h2>
+<p>
+Beyond his physical longevity, what truly endears Keanu Reeves to global audiences is his extraordinary personal humility and deep philanthropic generosity. Having confronted profound personal tragedies throughout his life, including the heartbreaking loss of loved ones, Reeves has responded not with bitterness or cynicism, but with deep empathy, kindness, and quiet charitable devotion.
+</p>
+<p>
+Stories of his unpretentious daily routine, from riding the New York City subway and giving up his seat to commuters, to privately donating tens of millions of dollars from his Matrix earnings to leukemia research foundations and gifting Rolex Submariner watches to his stunt crew, have cemented his status as cinema’s ultimate gentleman. He rejects the ostentatious trappings of modern celebrity culture, choosing instead to focus on creative craft, musical projects with his rock band Dogstar, and independent motorcycle engineering through Arch Motorcycle.
+</p>
+
+<h2 id="enduring-cultural-permanence">An Ageless Monument to Grace and Craft</h2>
+<p>
+As Reeves navigates his sixties, his cinematic schedule shows no indication of slowing down. With upcoming projects expanding the John Wick universe, comic book adaptations through his graphic novel series BRZRKR, and collaborations with master directors, he continues to demonstrate that true star power is defined by authenticity, physical dedication, and boundless respect for the audience.
+</p>
+<p>
+Ultimately, the question of Keanu Reeves's age serves as a celebration of a rare human spirit. In an era often dominated by synthetic illusions and transient fame, Reeves stands as an ageless titan who proves that humility, kindness, and relentless dedication to one's craft never grow old.
+</p>
+  `.trim();
+
+  const article9 = await prisma.article.upsert({
+    where: { slug: art9Slug },
+    update: {
+      title: 'How Old Is Keanu Reeves? The Ageless Hollywood Star and Action Cinema Legend',
+      excerpt: 'Discover how old Keanu Reeves is, his remarkable four-decade cinema career, relentless tactical stunt training in John Wick, and his reputation as Hollywood’s ultimate gentleman.',
+      content: art9Content,
+      featuredImage: '/images/keanu-reeves.jpg',
+      imageAlt: 'Keanu Reeves attending Toronto International Film Festival event',
+      publishedAt: new Date('2026-09-16T18:00:00.000+05:00'), // Exactly 6:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'How Old Is Keanu Reeves? Age, Career & John Wick Legacy | GoldMagazines',
+      metaDescription: 'Find out how old Keanu Reeves is, his ageless fitness secrets, tactical John Wick stunt discipline, career timeline, and why he remains a Hollywood icon.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+    create: {
+      title: 'How Old Is Keanu Reeves? The Ageless Hollywood Star and Action Cinema Legend',
+      slug: art9Slug,
+      excerpt: 'Discover how old Keanu Reeves is, his remarkable four-decade cinema career, relentless tactical stunt training in John Wick, and his reputation as Hollywood’s ultimate gentleman.',
+      content: art9Content,
+      featuredImage: '/images/keanu-reeves.jpg',
+      imageAlt: 'Keanu Reeves attending Toronto International Film Festival event',
+      publishedAt: new Date('2026-09-16T18:00:00.000+05:00'), // Exactly 6:00 PM PKT
+      readTime: 8,
+      status: 'PUBLISHED',
+      isFeatured: true,
+      isTrending: true,
+      isEditorsPick: true,
+      metaTitle: 'How Old Is Keanu Reeves? Age, Career & John Wick Legacy | GoldMagazines',
+      metaDescription: 'Find out how old Keanu Reeves is, his ageless fitness secrets, tactical John Wick stunt discipline, career timeline, and why he remains a Hollywood icon.',
+      categoryId: cultureCat.id,
+      authorId: author.id,
+    },
+  });
+
+  console.log('Successfully scheduled Article 9 (Keanu Reeves):', article9.title, 'at', article9.publishedAt);
 }
 
 main()
