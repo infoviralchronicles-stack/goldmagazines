@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle, Clock } from 'lucide-react';
+import { Mail, Send, CheckCircle, Clock } from 'lucide-react';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -43,13 +43,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 text-gray-600 dark:text-gray-400">
-                <MapPin className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-gray-200">Bureaus</p>
-                  <p>Zurich &bull; London &bull; Dubai &bull; Singapore</p>
-                </div>
-              </div>
 
               <div className="flex items-start space-x-3 text-gray-600 dark:text-gray-400">
                 <Clock className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
