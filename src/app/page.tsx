@@ -234,7 +234,7 @@ export default async function HomePage() {
         </div>
 
         {/* Sticky Editorial Sidebar (4 Columns) */}
-        <aside className="lg:col-span-4 space-y-6">
+        <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 h-fit">
           {/* Trending Bar */}
           <div className="p-5 rounded-2xl bg-white dark:bg-editorial-cardDark border border-gray-200 dark:border-editorial-cardDarkBorder shadow-sm">
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-100 dark:border-editorial-cardDarkBorder">
