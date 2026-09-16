@@ -1,85 +1,9 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Send, Shield, Award, CheckCircle } from 'lucide-react';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setLoading(true);
-    try {
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      if (res.ok) {
-        setSubscribed(true);
-        setEmail('');
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <footer className="w-full bg-editorial-dark border-t border-editorial-cardDarkBorder text-gray-300 transition-colors">
-      {/* Newsletter VIP Dispatch Banner */}
-      <section id="newsletter" className="border-b border-editorial-cardDarkBorder py-16 px-4 sm:px-8 bg-gradient-to-b from-[#111315] to-[#0c0d0e]">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest text-gold-400 bg-gold-500/10 border border-gold-500/20 mb-4">
-            <Award className="w-3.5 h-3.5 mr-1.5" /> Private Circulation
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black text-white tracking-tight mb-4">
-            The Sovereign Intelligence Memo
-          </h2>
-          <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto font-sans leading-relaxed mb-8">
-            Receive exclusive briefings on central bank bullion flows, unlisted high-horology private sales, and sovereign asset preservation. Delivered twice weekly.
-          </p>
-
-          {subscribed ? (
-            <div className="inline-flex items-center px-6 py-3 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 text-sm font-semibold">
-              <CheckCircle className="w-4 h-4 mr-2" /> Welcome to the private circulation list. Check your inbox shortly.
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                required
-                placeholder="Enter your personal or family office email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-xl bg-editorial-subtle border border-gray-800 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-gold-500 transition-colors"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="px-6 py-3 rounded-xl bg-gold-500 text-black text-xs font-bold uppercase tracking-wider hover:bg-gold-400 transition-all flex items-center justify-center disabled:opacity-50"
-              >
-                {loading ? 'Registering...' : (
-                  <>
-                    Subscribe <Send className="w-3.5 h-3.5 ml-2" />
-                  </>
-                )}
-              </button>
-            </form>
-          )}
-
-          <p className="text-[11px] text-gray-500 mt-4">
-            Strict editorial discretion. No spam, ever. Unsubscribe with one click.
-          </p>
-        </div>
-      </section>
-
       {/* Main Footer Links & Colophon */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
         {/* Col 1: Brand & Ethos */}
