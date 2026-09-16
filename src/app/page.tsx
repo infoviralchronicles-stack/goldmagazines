@@ -33,7 +33,7 @@ export default async function HomePage() {
     },
     include: { category: true, author: true },
     orderBy: { viewsCount: 'desc' },
-    take: 5,
+    take: 6,
   });
 
   // 3. Fetch Editor's Picks (Always show 3 articles)
@@ -234,24 +234,45 @@ export default async function HomePage() {
         </div>
 
         {/* Sticky Editorial Sidebar (4 Columns) */}
-        <aside className="lg:col-span-4 space-y-8">
+        <aside className="lg:col-span-4 space-y-6">
           {/* Trending Bar */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-editorial-cardDark border border-gray-200 dark:border-editorial-cardDarkBorder shadow-sm">
-            <div className="flex items-center justify-between pb-3 mb-4 border-b border-gray-100 dark:border-editorial-cardDarkBorder">
+          <div className="p-5 rounded-2xl bg-white dark:bg-editorial-cardDark border border-gray-200 dark:border-editorial-cardDarkBorder shadow-sm">
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-100 dark:border-editorial-cardDarkBorder">
               <h3 className="text-xs font-mono uppercase tracking-widest text-gray-900 dark:text-white font-bold flex items-center">
-                <TrendingUp className="w-4 h-4 text-gold-500 mr-2" /> Most Read Intelligence
+                <TrendingUp className="w-4 h-4 text-gold-500 mr-2" /> Top Stories
               </h3>
             </div>
 
             <div className="divide-y divide-gray-100 dark:divide-editorial-cardDarkBorder">
               {trendingArticles.map((art) => (
-                <ArticleCard key={art.id} article={art} layout="compact" />
+                <ArticleCard key={art.id} article={art} layout="horizontal" />
               ))}
             </div>
           </div>
 
-          {/* Sidebar Advertisement */}
-          <AdBanner slot="789123456" format="sidebar" label="Partner Feature" />
+          {/* Quick Category Directory */}
+          <div className="p-5 rounded-2xl bg-white dark:bg-editorial-cardDark border border-gray-200 dark:border-editorial-cardDarkBorder shadow-sm space-y-3">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-gray-900 dark:text-white font-bold flex items-center border-b border-gray-100 dark:border-editorial-cardDarkBorder pb-2">
+              <Compass className="w-4 h-4 text-gold-500 mr-2" /> Featured Desks
+            </h3>
+            <div className="flex flex-wrap gap-2 pt-1 text-xs font-mono">
+              <Link href="/category/tech" className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-editorial-subtle text-gray-800 dark:text-gray-200 hover:bg-gold-500 hover:text-black transition-colors">
+                Tech & Innovation
+              </Link>
+              <Link href="/category/features" className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-editorial-subtle text-gray-800 dark:text-gray-200 hover:bg-gold-500 hover:text-black transition-colors">
+                Features & Cinema
+              </Link>
+              <Link href="/category/culture" className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-editorial-subtle text-gray-800 dark:text-gray-200 hover:bg-gold-500 hover:text-black transition-colors">
+                Culture & Lifestyle
+              </Link>
+              <Link href="/category/business" className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-editorial-subtle text-gray-800 dark:text-gray-200 hover:bg-gold-500 hover:text-black transition-colors">
+                Business & Finance
+              </Link>
+              <Link href="/category/style-luxury" className="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-editorial-subtle text-gray-800 dark:text-gray-200 hover:bg-gold-500 hover:text-black transition-colors">
+                Style & Luxury
+              </Link>
+            </div>
+          </div>
 
           {/* Editorial Philosophy Statement Card */}
           <div className="p-6 rounded-2xl bg-gradient-to-br from-gold-500/10 via-editorial-subtle to-transparent border border-gold-500/20 text-gray-800 dark:text-gray-200">
