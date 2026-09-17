@@ -72,6 +72,7 @@ export default async function HomePage() {
       publishedAt: { lte: now },
     },
     include: { category: true, author: true },
+    orderBy: { publishedAt: 'desc' },
     take: 4,
   });
 
@@ -153,7 +154,7 @@ export default async function HomePage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {techArticles.map((art) => (
+                {(techArticles.length >= 4 ? techArticles.slice(0, 4) : techArticles.slice(0, 2)).map((art) => (
                   <ArticleCard key={art.id} article={art} layout="standard" />
                 ))}
               </div>
