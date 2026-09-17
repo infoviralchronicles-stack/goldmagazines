@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import HeroGrid from '@/components/magazine/HeroGrid';
 import ArticleCard from '@/components/magazine/ArticleCard';
+import LoadMoreFeed from '@/components/magazine/LoadMoreFeed';
 import AdBanner from '@/components/layout/AdBanner';
 import { TrendingUp, Sparkles, Compass, ShieldCheck } from 'lucide-react';
 
@@ -107,6 +108,20 @@ export default async function HomePage() {
     include: { category: true, author: true },
     take: 4,
   });
+
+  // 5. Fetch all published articles for the comprehensive paginated / load-more stream
+  const allFeedArticles = await prisma.article.findMany({
+    where: {
+      status: 'PUBLISHED',
+      publishedAt: { lte: now },
+    },
+    include: { category: true, author: true },
+    orderBy: { publishedAt: 'desc' },
+  });
+
+  // Show 10 initial articles, remainder will be loaded via "Load More Articles"
+  const initialArticles = allFeedArticles.slice(0, 10);
+  const remainingArticles = allFeedArticles.slice(10);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6 space-y-12">
@@ -232,6 +247,24 @@ export default async function HomePage() {
               </div>
             </section>
           )}
+
+          {/* Complete Editorial Feed with "Load More Articles" */}
+          <section className="pt-6 border-t border-gray-200 dark:border-editorial-cardDarkBorder">
+            <div className="flex items-center justify-between pb-4 mb-6 border-b border-gray-100 dark:border-editorial-cardDarkBorder">
+              <h2 className="text-xl sm:text-2xl font-serif font-black text-gray-950 dark:text-white flex items-center">
+                Latest Dispatches & Archives
+              </h2>
+              <span className="text-xs font-mono uppercase tracking-widest text-gold-600 dark:text-gold-400 font-bold">
+                Live Feed
+              </span>
+            </div>
+
+            <LoadMoreFeed
+              initialArticles={initialArticles}
+              allRemainingArticles={remainingArticles}
+              pageSize={4}
+            />
+          </section>
         </div>
 
         {/* Sticky Editorial Sidebar (4 Columns) */}
