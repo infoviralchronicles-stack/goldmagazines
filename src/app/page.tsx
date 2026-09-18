@@ -119,9 +119,9 @@ export default async function HomePage() {
     orderBy: { publishedAt: 'desc' },
   });
 
-  // Show 10 initial articles, remainder will be loaded via "Load More Articles"
-  const initialArticles = allFeedArticles.slice(0, 10);
-  const remainingArticles = allFeedArticles.slice(10);
+  // Show 4 initial articles, remainder will be loaded via "Load More Articles"
+  const initialArticles = allFeedArticles.slice(0, 4);
+  const remainingArticles = allFeedArticles.slice(4);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6 space-y-12">
