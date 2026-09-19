@@ -227,14 +227,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </header>
 
         {/* Featured Hero Media */}
-        <div className="relative w-full aspect-[21/9] max-h-[560px] overflow-hidden rounded-2xl shadow-lg border border-gray-200 dark:border-editorial-cardDarkBorder mb-12">
+        <div className="relative w-full aspect-[16/9] max-h-[620px] overflow-hidden rounded-2xl shadow-lg border border-gray-200 dark:border-editorial-cardDarkBorder mb-12 bg-gray-100 dark:bg-editorial-subtle">
           <Image
             src={article.featuredImage}
             alt={article.imageAlt || article.title}
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-top"
           />
         </div>
 

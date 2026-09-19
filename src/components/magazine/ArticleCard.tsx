@@ -45,7 +45,7 @@ export default function ArticleCard({ article, layout = 'standard' }: ArticleCar
             alt={article.imageAlt || article.title}
             fill
             sizes="120px"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         </div>
         <div className="flex-1 min-w-0">
@@ -110,7 +110,7 @@ export default function ArticleCard({ article, layout = 'standard' }: ArticleCar
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 66vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
           
@@ -157,13 +157,13 @@ export default function ArticleCard({ article, layout = 'standard' }: ArticleCar
   // 4. Standard Editorial Card (Default)
   return (
     <article className="group flex flex-col h-full bg-white dark:bg-editorial-cardDark rounded-xl border border-gray-200/80 dark:border-editorial-cardDarkBorder overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-gold-500/40">
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 dark:bg-editorial-subtle">
+      <div className="relative aspect-[16/11] w-full overflow-hidden bg-gray-100 dark:bg-editorial-subtle">
         <Image
           src={article.featuredImage}
           alt={article.imageAlt || article.title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute top-3 left-3">
           <span
